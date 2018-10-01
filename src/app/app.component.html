@@ -1,0 +1,47 @@
+
+
+<h1>Exchange Rates</h1>
+<div class="m-container">
+    
+<div class="converter">
+
+  <!-- <span class="base">Base: </span> -->
+  <label>Base: </label>
+
+   <select id="fromCurrency" [(ngModel)]="fromCurrency">
+      <option *ngFor="let rate of rates" [value]="rate.id">{{ rate.id }}</option>
+      
+  </select>
+
+  <br><br>
+  <label>Date: </label>
+  <input class="datefield" type="date" value="2014-12-29" [(ngModel)]="date" />
+  <br><br>
+
+  <button  class="displaybtn" type="button" (click)="convert(false)">Display</button>
+
+</div>
+
+
+<table class=currencytable>
+    <thead class="headerrow">
+        <tr>
+        <th>Currency</th>
+        <th>Buy Rate</th>
+        <th>Sell Rate</th>
+    </tr>
+    </thead>
+    <tbody class="tblbody">
+<ng-container *ngFor="let tamt of toAmount">
+        <tr >  
+
+            <td>{{tamt.curr}}</td> 
+            <td>{{tamt.BuyVal}}</td>
+            <td>{{tamt.SellVal}}</td>
+
+       </tr>
+    </ng-container>
+    </tbody> 
+</table>
+
+</div>
